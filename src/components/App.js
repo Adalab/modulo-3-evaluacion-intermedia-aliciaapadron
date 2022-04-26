@@ -6,6 +6,7 @@ const App = () => {
   //variables de estado
   const [data, setData] = useState([]);
   const [search, setSearch] = useState('');
+  const [select, setSelect] = useState('');
   const [newQuote, setNewQuote] = useState({
     quote: '',
     character: '',
@@ -19,6 +20,9 @@ const App = () => {
   //funciones handle
   const handleSearch = (ev) => {
     setSearch(ev.target.value);
+  };
+  const handleSelect = (ev) => {
+    setSelect(ev.target.value);
   };
   const handleNewQuote = (ev) => {
     setNewQuote({
@@ -40,6 +44,10 @@ const App = () => {
       (phrase) =>
         phrase.quote.toLowerCase().includes(search.toLowerCase()) ||
         phrase.character.toLowerCase().includes(search.toLowerCase())
+    )
+    .filter(
+      (phrase) =>
+        phrase.quote.includes(select) || phrase.character.includes(select)
     )
     .map((phrase, i) => {
       return (
@@ -66,14 +74,14 @@ const App = () => {
             value={search}
           />
           <label htmlFor="text">Filtar por personaje</label>
-          <select name="" id="">
+          <select name="" id="" onChange={handleSelect} value={select}>
             <option value="">Todos</option>
-            <option value="">Ross</option>
-            <option value="">Mónica</option>
-            <option value="">Joey</option>
-            <option value="">Phoebe</option>
-            <option value="">Chandler</option>
-            <option value="">Rachel</option>
+            <option value="Ross">Ross</option>
+            <option value="Monica">Mónica</option>
+            <option value="Joey">Joey</option>
+            <option value="Phoebe">Phoebe</option>
+            <option value="Chandler">Chandler</option>
+            <option value="Rachel">Rachel</option>
           </select>
         </form>
       </header>

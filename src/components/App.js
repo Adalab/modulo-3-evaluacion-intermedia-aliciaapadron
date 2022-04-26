@@ -5,6 +5,7 @@ import callToApi from '../services/api';
 const App = () => {
   //variables de estado
   const [data, setData] = useState([]);
+  const [search, setSearch] = useState('');
   const [newQuote, setNewQuote] = useState({
     quote: '',
     character: '',
@@ -16,6 +17,9 @@ const App = () => {
     });
   }, []);
   //funciones handle
+  const handleSearch = (ev) => {
+    setSearch(ev.target.value);
+  };
   const handleNewQuote = (ev) => {
     setNewQuote({
       ...newQuote,
@@ -32,11 +36,11 @@ const App = () => {
   };
 
   const htmlData = data
-    // .filter(
-    //   (phrase) =>
-    //     phrase.name.toLowerCase().includes(search.toLowerCase()) ||
-    //     phrase.lastname.toLowerCase().includes(search.toLowerCase())
-    // )
+    .filter(
+      (phrase) =>
+        phrase.quote.toLowerCase().includes(search.toLowerCase()) ||
+        phrase.character.toLowerCase().includes(search.toLowerCase())
+    )
     .map((phrase, i) => {
       return (
         <li className="phrase__item" key={i}>
@@ -58,8 +62,8 @@ const App = () => {
             autoComplete="off"
             type="search"
             name="search"
-            // onChange={handleSearch}
-            // value={search}
+            onChange={handleSearch}
+            value={search}
           />
           <label htmlFor="text">Filtar por personaje</label>
           <select name="" id="">

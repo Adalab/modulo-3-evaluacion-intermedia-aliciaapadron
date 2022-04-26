@@ -1,4 +1,4 @@
-.contact {
+.phrase {
   &__list {
     display: flex;
     justify-content: space-between;
@@ -12,7 +12,7 @@
     list-style: none;
     border-radius: 0.5rem;
     border: 1px solid #ddd;
-    background-color: #a349a4;
+    background-color: #9786ba;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     font-weight: bold;
     color: #fff;
@@ -21,7 +21,9 @@
       margin: 3px 0;
     }
   }
-
+  &__span {
+    color: #19181a;
+  }
   &__label {
     display: inline-block;
     font-weight: normal;

@@ -53,7 +53,8 @@ const App = () => {
       return (
         <li className="phrase__item" key={i}>
           <p className="phrase__name">
-            {phrase.quote}-{phrase.character}
+            {phrase.quote} -
+            <span className="phrase__span"> {phrase.character}</span>
           </p>
         </li>
       );
@@ -62,7 +63,13 @@ const App = () => {
     <div className="page">
       {/* header */}
       <header className="header">
-        <h1 className="header__title">Frases de Friends</h1>
+        <h1 className="header__title">
+          Frases de
+          <div className="header__title2">
+            <span> F</span>.<span>R</span>.<span>I</span>.<span>E</span>.
+            <span>N</span>.<span>D</span>.<span>S</span>
+          </div>
+        </h1>
         <form>
           <label htmlFor="text">Filtar por frase</label>
           <input
@@ -115,7 +122,7 @@ const App = () => {
           />
           <label htmlFor="text">Añadir una nueva frase</label>
           <input
-            className="new-contact__btn"
+            className="new-phrase__btn"
             type="submit"
             value="Añadir"
             onClick={handleClick}

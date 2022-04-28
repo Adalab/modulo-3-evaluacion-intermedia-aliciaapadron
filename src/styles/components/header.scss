@@ -1,19 +1,30 @@
 .header {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #eee;
-
+  &__div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__img {
+    display: flex;
+    width: 190px;
+    margin: 0;
+  }
   &__title {
     font-size: 1.5rem;
-    color: #9685b9;
+    color: black;
+    text-align: center;
   }
 
   &__search {
     padding: 0.5rem;
-    width: 20rem;
+    width: 15rem;
     border: 2px solid #ddd;
     border-radius: 0.5rem;
     background-color: #f8f8f8;
@@ -21,8 +32,11 @@
     transition: all ease 0.3s;
 
     &:focus {
-      border-color: #9685b9;
+      border-color: #8065d0;
       background-color: #fff;
     }
   }
+}
+.form__label {
+  margin: 10px;
 }
